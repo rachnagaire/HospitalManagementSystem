@@ -1,0 +1,27 @@
+
+@import "helpers/variables";
+
+@import "base/boostrap-config";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "base/default";
+
+@import "helpers/utilities";
+
+@import "components/nav";
+@import "components/banner";
+
+@import "components/forms";
+
+@import "components/sidebar";
+@import "components/list";
+
+@import "components/modal";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/main";
+
+@import "pages/landingpg";
+
+@import  "./components/main";
+
