@@ -4,13 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "sass --watch scss:css"
+=======
+    "build-css": "sass Assets/SCSS/main.scss Assets/CSS/main.css",
+    "watch-css": "sass --watch Assets/SCSS/main.scss:Assets/CSS/main.css"
+>>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap": "^4.6.2",
     "sass": "^1.80.3"
+=======
+    "bootstrap": "^4.6.2"
+  },
+  "devDependencies": {
+    "sass": "^1.79.4"
+>>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745
   }
 }

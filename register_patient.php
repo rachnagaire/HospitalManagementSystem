@@ -2,10 +2,19 @@
 include 'db.inc.php'; // Your database connection file
 
 // Collect data from the form
+<<<<<<< HEAD
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $gender = $_POST['gender'];
 $birthDate = $_POST['birthDate'];
+=======
+$identifier = $_POST['identifier'];
+$active = $_POST['active'];
+$first_name = $_POST['first_name'];
+$last_name = $_POST['last_name'];
+$gender = $_POST['gender'];
+$birthDate = $_POST['dob'];
+>>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $marital_status = $_POST['marital_status'];
@@ -17,6 +26,7 @@ $communication_language = $_POST['communication_language'];
 $general_practitioner = $_POST['general_practitioner'];
 $managing_organization = $_POST['managing_organization'];
 
+<<<<<<< HEAD
 // Check if deathDate is provided, if not, set it to NULL
 $deathDate = isset($_POST['deathDate']) && !empty($_POST['deathDate']) ? $_POST['deathDate'] : NULL;
 
@@ -40,6 +50,16 @@ $stmt->bind_param(
 );
 
 // Execute the query
+=======
+// Prepare SQL query to insert data
+$sql = "INSERT INTO patient (identifier, active, first_name, last_name, gender, birthDate, deathDate, phone, email, marital_status, contact_name, contact_relationship, contact_phone, contact_email, communication_language, general_pracitioner, managing_organization)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("sisssssssisssssss", $identifier, $active, $first_name, $last_name, $gender, $birthDate, $deathDate, $phone, $email, $marital_status, $contact_name, $contact_relationship, $contact_phone, $contact_email, $communication_language, $general_practitioner, $managing_organization);
+
+// Execute the statement
+>>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745
 if ($stmt->execute()) {
     echo "Patient registered successfully.";
 } else {
