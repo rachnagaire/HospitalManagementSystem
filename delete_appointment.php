@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $stmt->bind_param('i', $appointment_id);
 
     if ($stmt->execute()) {
-        header("Location: appointment_list.php?msg=Appointment deleted successfully"); // Redirect with success message
+        header("Location: dashboard-appointment.php"); // Redirect with success message
     } else {
         echo "Error deleting record: " . $conn->error;
     }

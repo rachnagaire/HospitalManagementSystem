@@ -49,6 +49,7 @@
             practitioner d ON a.practitioner_id = d.practitioner_id
         ";
         
+        
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -78,29 +79,7 @@
 </table>
 
 <script>
-    // JavaScript function to filter/search table
-    function searchTable() {
-        var input, filter, table, tr, td, i, j, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("appointmentTable");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 1; i < tr.length; i++) { // Start from row 1, skip the header
-            tr[i].style.display = "none"; // Initially hide the row
-            td = tr[i].getElementsByTagName("td");
-            for (j = 0; j < td.length; j++) {
-                if (td[j]) {
-                    txtValue = td[j].textContent || td[j].innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                        break; // Exit inner loop if match is found
-                    }
-                }
-            }
-        }
-    }
-
+    
     $(document).ready(function () {
         $('#appointmentTable').DataTable({
             dom: 'Bfrtip', // Add buttons for export
@@ -122,12 +101,5 @@
     }
 </script>
 
-<script>
-    
-    
-</script>
-<script>
-    // Confirm delete function
-    
-</script>
-<?php include 'footer.php'; ?> 
+
+

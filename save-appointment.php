@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         address = VALUES(address)";
         $stmt_patient = $conn->prepare($sql_patient);
         $stmt_patient->bind_param("sssss", $first_name, $last_name, $phone_number, $email, $address);
+
         if ($stmt_patient->execute()) {
             // Get patient ID (auto-incremented or existing)
             $patient_id = $conn->insert_id ?: $conn->query("SELECT patient_id FROM patient WHERE email = '$email'")->fetch_assoc()['patient_id'];
@@ -56,12 +57,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Update the status of all rows in the database to 'booked'
                 $update_status_sql = "UPDATE appointment SET appointment_status = 'booked' WHERE appointment_status IS NULL OR appointment_status = ''";
                 if ($conn->query($update_status_sql) === TRUE) {
+                    // Success message
                     echo "Appointment booked successfully, and all statuses updated to 'booked'.";
+
+                    // Check if the user is logged in
+                    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+                        // User is logged in, provide link to the booking list
+                        echo '<a href="dashboard-appointment.php" class="link mx-auto">Go to Booking List</a>';
+                    } else {
+                        // User is not logged in, provide link to the landing page
+                        echo '<a href="index.php" class="link mx-auto">Go to Landing Page</a>';
+                    }
                 } else {
                     echo "Error updating status: " . $conn->error;
                 }
-
-                echo '<a href="/HospitalManagementSystem/index.php" class="link mx-auto">Go to Landing Page</a>';
             } else {
                 echo "Error saving appointment: " . $stmt_appointment->error;
             }

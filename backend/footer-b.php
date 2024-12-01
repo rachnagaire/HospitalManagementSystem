@@ -1,4 +1,4 @@
-<footer class="dashboard-footer">
+<footer class="dashboard-footer mt-5">
         <p>&copy; <?php echo date("Y"); ?> Clinic Information Management System. All Rights Reserved.</p>
     </footer>
 <!-- Add MDB Bootstrap JS -->
@@ -11,6 +11,7 @@ if (basename($_SERVER['PHP_SELF']) == 'patient_info.php') {
 }
 ?>
 <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
@@ -18,7 +19,11 @@ if (basename($_SERVER['PHP_SELF']) == 'patient_info.php') {
       <script src="js/animate.js"></script>
       <!-- select country -->
       <script src="js/bootstrap-select.js"></script>
-
+    <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
     <script>
 // JavaScript function to filter/search table
 function searchTable() {

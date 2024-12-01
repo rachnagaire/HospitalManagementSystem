@@ -16,7 +16,7 @@
 <a href="PatientRegistrationForm.php" class="btn btn-primary">Add new patient</a>
 </div>
 
-<table id="patientTable" class="table bordered highlight responsive-table" cellspacing="0">
+<table id="patientTable" class="table bordered highlight responsive-table mb-5 pb-5" cellspacing="0">
     <thead>
         <tr>
             <th>First Name</th>
@@ -49,8 +49,8 @@
 
                 // Add Edit and Delete buttons
                 echo "<td>
-                        <a href='EditPatient.php?id=" . $row['patient_id'] . "' class='btn btn-warning btn-sm'>Edit</a>
-                        <button onclick='confirmDelete(" . $row['patient_id'] . ")' class='btn btn-danger btn-sm'>Delete</button>
+                        <a href='edit_patient.php?id=" . $row['patient_id'] . "' class=' text-warning'><i class='fa fa-edit'></i></a>
+                        <a onclick='confirmDelete(" . $row['patient_id'] . ")' class='text-danger ml-2'><i class='fa fa-trash'></i></a>
                       </td>";
                 echo "</tr>";
             }
@@ -91,9 +91,19 @@
     // Confirm delete action
     function confirmDelete(patientId) {
         if (confirm("Are you sure you want to delete this patient?")) {
-            window.location.href = "deletePatient.php?id=" + patientId;
+            window.location.href = "dashboard-patients.php";
         }
     }
+    $(document).ready(function () {
+        $('#patientTable').DataTable({            
+            
+            paging: true, // Enable pagination
+            searching: true, // Enable search bar
+            ordering: true, // Enable column sorting
+            lengthChange: true, // Allow changing the number of rows displayed
+            
+        });
+    });
 </script>
 
-<?php include 'footer.php'; ?>
+
