@@ -20,7 +20,7 @@
             <div class="img-holder mx-auto">
                 <figure><img src="/HospitalManagementSystem/Assets/Images/signin.jpg" class="img signin-img" alt="sign up image"></figure>
             </div>
-            <form class="form px-5 w-50 signin-form" method="post" action="register_patient.php">
+            <form class="form px-5 w-50 signin-form" method="post" action="registeruser.php">
             <a class="navbar-brand" href="/HospitalManagementSystem/index.php"><img src="/HospitalManagementSystem/Assets/Images/LOGO.png" alt="" width="50"> <span class="logo-text text-primary font-weight-bold">CIMS</span></a>
 <h3 > Sign Up</h3>
 <p>Already have an account ? <a href="signin.php">Sign In.</a></p>
@@ -40,8 +40,11 @@
       </div>
     </div>
 
-    <!-- Gender radio buttons -->
-    
+   <!-- Username input -->
+<div class="mb-2 w-100">
+  <label class="form-label" for="username">Username</label>
+  <input type="text" id="username" class="form-control" name="username" required />
+</div>
 
     <!-- Date of Birth input -->
     <div class="mb-2 w-100">

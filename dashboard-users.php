@@ -39,7 +39,7 @@ $conn->close();
            
            <?php  include 'sidebar.php'?>
            
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+            <div class="col-md-10 col-sm-11 display-table-cell v-align dashboard-main">
                 <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
                 <div class="row">
                     <header class="dashboard-header">
@@ -97,12 +97,14 @@ $conn->close();
                 <div class="user-dashboard">
                     
                    
-                        <?php include 'patientsInfo.php' ?>
+                        <?php include 'userInfo.php' ?>
                     </div>
                 </div>
             </div>
         </div>
 
 </div>
+
+<?php include 'backend/footer-b.php' ?>
 
 

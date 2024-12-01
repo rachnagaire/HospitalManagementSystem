@@ -4,7 +4,7 @@
 <h3 class="mt-4">Appointment Details</h3>
 
 <!-- Search bar for filtering the table -->
-<div class="d-flex align-item-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between">
     <div class="input-group mb-3">
         <div class="form-outline w-auto" data-mdb-input-init>
             <input type="search" id="searchInput" class="form-control" placeholder="Search in table..." onkeyup="searchTable()" />
@@ -25,6 +25,8 @@
             <th>Date</th>
             <th>Time</th>
             <th>Status</th>
+            <th> Actions</th>
+
         </tr>
     </thead>
     <tbody>
@@ -59,6 +61,10 @@
                 echo "<td>" . htmlspecialchars($row['appointment_date']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['appointment_time']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['appointment_status']) . "</td>";
+                echo "<td>";
+                echo"<a href='edit_appointment.php?id=" . $row["appointment_id"] . "'><i class='fa fa-edit'></i></a>";
+                echo "<a href='javascript:void(0)' onclick='confirmDelete(" . $row["appointment_id"] . ")' class='text-danger ml-2'><i class='fa fa-trash'></i></a>";
+                echo "</td>";
                 echo "</tr>";
             }
         } else {
@@ -94,5 +100,34 @@
             }
         }
     }
+
+    $(document).ready(function () {
+        $('#appointmentTable').DataTable({
+            dom: 'Bfrtip', // Add buttons for export
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print' // Export options
+            ],
+            paging: true, // Enable pagination
+            searching: true, // Enable search bar
+            ordering: true, // Enable column sorting
+            lengthChange: true, // Allow changing the number of rows displayed
+            
+        });
+    });
+
+    function confirmDelete(id) {
+        if (confirm('Are you sure you want to delete this appointment?')) {
+            window.location.href = 'dasboard-appointment.php';
+        }
+    }
 </script>
 
+<script>
+    
+    
+</script>
+<script>
+    // Confirm delete function
+    
+</script>
+<?php include 'footer.php'; ?> 

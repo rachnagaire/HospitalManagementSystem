@@ -13,7 +13,7 @@
   } else {
       echo "<p class='text-danger text-center'>No doctors available. Please add doctors first.</p>";
   }
-  ?>
+?>
 <?php include 'header.php'; ?>
 
 <div class="container mt-5">
@@ -70,12 +70,18 @@
       <label class="form-label" for="appointment_time">Appointment Time</label>
       <input type="time" id="appointment_time" class="form-control" name="appointment_time" required />
     </div>
-
+    <!-- Address -->
+    <div class="mb-3">
+      <label class="form-label" for="address">Address</label>
+      <input type="text" id="address" class="form-control" name="address" required />
+    </div>
     <!-- Reason for Appointment -->
     <div class="mb-3">
       <label class="form-label" for="reason">Reason for Appointment</label>
       <textarea id="reason" class="form-control" name="reason" rows="3" placeholder="Optional"></textarea>
     </div>
+
+    
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mt-4">Book Appointment</button>

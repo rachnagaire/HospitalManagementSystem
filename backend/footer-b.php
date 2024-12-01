@@ -18,19 +18,32 @@ if (basename($_SERVER['PHP_SELF']) == 'patient_info.php') {
       <script src="js/animate.js"></script>
       <!-- select country -->
       <script src="js/bootstrap-select.js"></script>
-      <!-- owl carousel -->
-      <script src="js/owl.carousel.js"></script> 
-      <!-- chart js -->
-      <script src="js/Chart.min.js"></script>
-      <script src="js/Chart.bundle.min.js"></script>
-      <script src="js/utils.js"></script>
-      <!-- nice scrollbar -->
-      <script src="js/perfect-scrollbar.min.js"></script>
-      <script>
-         var ps = new PerfectScrollbar('#sidebar');
-      </script>
-      <!-- custom js -->
-      <script src="js/chart_custom_style1.js"></script>
-      <script src="js/custom.js"></script>
+
+    <script>
+// JavaScript function to filter/search table
+function searchTable() {
+        var input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("appointmentTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 1; i < tr.length; i++) { // Start from row 1, skip the header
+            tr[i].style.display = "none"; // Initially hide the row
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                        break; // Exit inner loop if match is found
+                    }
+                }
+            }
+        }
+    }
+
+    </script>
+      
 </body>
 </html>

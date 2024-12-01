@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $appointment_date = $_POST['appointment_date'];
     $appointment_time = $_POST['appointment_time'];
     $reason = isset($_POST['reason']) ? $_POST['reason'] : null;
+    $address = $_POST['address']; // Address field
 
     // Fetch doctor's first and last name from the practitioner table
     $sql_practitioner = "SELECT first_name, last_name FROM practitioner WHERE practitioner_id = ?";
@@ -26,14 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $practitioner_last_name = $doctor['last_name'];
 
         // Insert or update patient details in the `patient` table
-        $sql_patient = "INSERT INTO patient (first_name, last_name, phone, email) 
-                        VALUES (?, ?, ?, ?)
+        $sql_patient = "INSERT INTO patient (first_name, last_name, phone, email, address) 
+                        VALUES (?, ?, ?, ?, ?)
                         ON DUPLICATE KEY UPDATE 
                         first_name = VALUES(first_name), 
                         last_name = VALUES(last_name), 
-                        phone = VALUES(phone)";
+                        phone = VALUES(phone), 
+                        address = VALUES(address)";
         $stmt_patient = $conn->prepare($sql_patient);
-        $stmt_patient->bind_param("ssss", $first_name, $last_name, $phone_number, $email);
+        $stmt_patient->bind_param("sssss", $first_name, $last_name, $phone_number, $email, $address);
         if ($stmt_patient->execute()) {
             // Get patient ID (auto-incremented or existing)
             $patient_id = $conn->insert_id ?: $conn->query("SELECT patient_id FROM patient WHERE email = '$email'")->fetch_assoc()['patient_id'];

@@ -49,48 +49,11 @@
                         </div>
                     </div>
                     <div class="col">
-                        <a href="#!">Forgot password?</a>
-=======
-<?php
-include 'header.php'
-?>
-
-<div class="container">
-    <div class="row">
-        <div class="col-5 mx-auto">
-            <div class="card p-3">
-            <form>
-                <!-- Email input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="form1Example1" class="form-control" />
-                    <label class="form-label" for="form1Example1">User Name</label>
-                </div>
-
-                <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="form1Example2" class="form-control" />
-                    <label class="form-label" for="form1Example2">Password</label>
-                </div>
-
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                    <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                        <label class="form-check-label" for="form1Example3"> Remember me </label>
-                    </div>
-                    </div>
-
-                    <div class="col">
-                    <!-- Simple link -->
-                    <a href="#!">Forgot password?</a>
->>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745
+                        <a href="forget_password.php">Forgot password?</a>
                     </div>
                 </div>
 
                 <!-- Submit button -->
-<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
                 <a href="/HospitalManagementSystem/index.php" class="link mx-auto">Go to Landing Page</a>
             </form>
@@ -128,15 +91,3 @@ include 'header.php'
         });
     });
 </script>
-=======
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Sign in</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<?php
-include 'footer.php'
-?>
-
->>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745

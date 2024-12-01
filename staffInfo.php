@@ -4,7 +4,7 @@
 <h3 class="mt-4">Staff Details</h3>
 
 <!-- Search bar for filtering the table -->
-<div class="d-flex align-item-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between">
     <div class="input-group mb-3">
         <div class="form-outline w-auto" data-mdb-input-init>
             <input type="search" id="searchStaffInput" class="form-control" placeholder="Search in table..." onkeyup="searchStaffTable()" />

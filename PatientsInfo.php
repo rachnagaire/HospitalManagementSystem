@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-
 <?php include 'db.inc.php'; // Include the database connection file ?>
 
 <h1 class="sr-only">Patient Details</h1>
 <h3 class="mt-4">Patient Details</h3>
 
 <!-- Search bar for filtering the table -->
-<div class="d-flex align-item-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between">
 <div class="input-group mb-3">
   <div class="form-outline w-auto" data-mdb-input-init>
     <input type="search" id="searchInput" class="form-control" placeholder="Search in table..." onkeyup="searchTable()"/>
-    
   </div>
   <button type="button" class="btn btn-primary" data-mdb-ripple-init>
     <i class="fa fa-search"></i>
@@ -18,7 +15,6 @@
 </div>
 <a href="PatientRegistrationForm.php" class="btn btn-primary">Add new patient</a>
 </div>
-
 
 <table id="patientTable" class="table bordered highlight responsive-table" cellspacing="0">
     <thead>
@@ -30,12 +26,13 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
+            <th>Actions</th> <!-- New column for edit and delete -->
         </tr>
     </thead>
     <tbody>
         <?php
         // Prepare SQL query to fetch patient data
-        $sql = "SELECT first_name, last_name, birthDate, gender, email, phone, managing_organization AS address FROM patient";
+        $sql = "SELECT patient_id, first_name, last_name, birthDate, gender, email, phone, managing_organization AS address FROM patient";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -49,10 +46,16 @@
                 echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['address']) . "</td>";
+
+                // Add Edit and Delete buttons
+                echo "<td>
+                        <a href='EditPatient.php?id=" . $row['patient_id'] . "' class='btn btn-warning btn-sm'>Edit</a>
+                        <button onclick='confirmDelete(" . $row['patient_id'] . ")' class='btn btn-danger btn-sm'>Delete</button>
+                      </td>";
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='7'>No patient records found.</td></tr>";
+            echo "<tr><td colspan='8'>No patient records found.</td></tr>";
         }
 
         // Close the database connection
@@ -82,6 +85,13 @@
                     }
                 }
             }
+        }
+    }
+
+    // Confirm delete action
+    function confirmDelete(patientId) {
+        if (confirm("Are you sure you want to delete this patient?")) {
+            window.location.href = "deletePatient.php?id=" + patientId;
         }
     }
 </script>

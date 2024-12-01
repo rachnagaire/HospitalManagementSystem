@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php include 'backend/header-b.php' ?>
 <?php
 // Start session
@@ -38,7 +37,7 @@ $conn->close();
 <div class="container-fluid display-table">
     <div class="row display-table-row">
         <?php include 'sidebar.php'?>
-        <div class="col-md-10 col-sm-11 display-table-cell v-align">
+        <div class="col-md-10 col-sm-11 display-table-cell v-align dashboard-main">
             <div class="row">
                 <header class="dashboard-header">
                     <div class="col-md-7">
@@ -89,21 +88,21 @@ $conn->close();
             </div>
             <div class="user-dashboard">
                 <div class="container">
-                    <form class="form mt-5" method="post" action="register_patient.php">
+                    <form class="form mt-5 mb-5 pb-5" method="post" action="register_patient.php">
                         <h5>Register Patient</h5>
 
                         <!-- Patient Details -->
-                        <div class="row mb-3">
+                        <div class="row">
                             <div class="col">
-                                <div class="form-outline">
-                                    <input type="text" id="first_name" class="form-control" name="first_name" required />
+                                <div class="form-group mb-0">
                                     <label class="form-label" for="first_name">First Name</label>
+                                    <input type="text" id="first_name" class="form-control" name="first_name" required />
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="form-outline">
-                                    <input type="text" id="last_name" class="form-control" name="last_name" required />
+                                <div class="form-group mb-0">
                                     <label class="form-label" for="last_name">Last Name</label>
+                                    <input type="text" id="last_name" class="form-control" name="last_name" required />
                                 </div>
                             </div>
                         </div>
@@ -157,6 +156,11 @@ $conn->close();
                                 <option value="widowed">Widowed</option>
                             </select>
                         </div>
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <label class="form-label" for="managing_organization">Address</label>
+                            <input type="text" id="managing_organization" class="form-control" name="managing_organization" required />
+                        </div>
 
                         <!-- Emergency Contact Details -->
                         <h6>Emergency Contact</h6>
@@ -189,11 +193,7 @@ $conn->close();
                             <input type="text" id="general_practitioner" class="form-control" name="general_practitioner" required />
                         </div>
 
-                        <!-- Managing Organization -->
-                        <div class="mb-3">
-                            <label class="form-label" for="managing_organization">Managing Organization</label>
-                            <input type="text" id="managing_organization" class="form-control" name="managing_organization" required />
-                        </div>
+                        
 
                         
 

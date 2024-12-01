@@ -4,7 +4,7 @@
 <h3 class="mt-4">Doctor Details</h3>
 
 <!-- Search bar for filtering the table -->
-<div class="d-flex align-item-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between">
     <div class="input-group mb-3">
         <div class="form-outline w-auto" data-mdb-input-init>
             <input type="search" id="searchDoctorInput" class="form-control" placeholder="Search in table..." onkeyup="searchDoctorTable()" />
@@ -13,6 +13,7 @@
             <i class="fa fa-search"></i>
         </button>
     </div>
+    <a href="add_doctor.php" class="btn btn-primary">Add new Doctor</a>
 </div>
 
 <table id="doctorTable" class="table bordered highlight responsive-table" cellspacing="0">

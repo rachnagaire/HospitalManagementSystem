@@ -18,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
 
-        // Verify the password (assuming it’s plain-text; consider hashing in production)
-        if ($user['password'] == $password) {
+        // Verify the hashed password using password_verify
+        if (password_verify($password, $user['password'])) {
             // Set session variables
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
