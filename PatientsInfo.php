@@ -21,17 +21,6 @@
 
 
 <table id="patientTable" class="table bordered highlight responsive-table" cellspacing="0">
-=======
-<?php include 'header.php'; ?>
-<?php include 'db.inc.php'; // Include the database connection file ?>
-
-<h1>Patient Details</h1>
-
-<!-- Search bar for filtering the table -->
-<input type="text" id="searchInput" placeholder="Search in table..." onkeyup="searchTable()">
-
-<table id="patientTable">
->>>>>>> ceaf0d168c6562778983b733f3e5e18f2dbef745
     <thead>
         <tr>
             <th>First Name</th>

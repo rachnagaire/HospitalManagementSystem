@@ -24,7 +24,6 @@ if (basename($_SERVER['PHP_SELF']) == 'patient_info.php') {
       <script src="js/Chart.min.js"></script>
       <script src="js/Chart.bundle.min.js"></script>
       <script src="js/utils.js"></script>
-      <script src="js/analyser.js"></script>
       <!-- nice scrollbar -->
       <script src="js/perfect-scrollbar.min.js"></script>
       <script>
