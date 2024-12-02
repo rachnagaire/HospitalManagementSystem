@@ -1,3 +1,4 @@
+
 <?php include 'backend/header-b.php' ?>
 <?php
 // Start session
@@ -199,7 +200,7 @@ $conn->close();
 
                         <!-- Submit Button -->
                         <div class="form-outline">
-                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-primary" onclick="this.disabled=true;this.form.submit();">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -207,4 +208,3 @@ $conn->close();
         </div>
     </div>
 </div>
-

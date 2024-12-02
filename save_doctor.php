@@ -40,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         echo "Practitioner added successfully!";
+        echo '<a href="dashboard-doctors.php" class="link mx-auto">Go to Doctors List</a>';
+
     } else {
         echo "Error: " . $stmt->error;
     }

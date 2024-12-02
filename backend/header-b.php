@@ -80,6 +80,14 @@
             left: 15.5%;
             top: 50%;
           }
+          .form-outline .form-control{
+            border: 1px solid #ccc;
+
+          }
+          .form-outline .form-control::placeholder{
+            color:  #ccc;
+            
+          }
 
     </style>
 </head>

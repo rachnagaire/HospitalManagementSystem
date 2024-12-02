@@ -38,7 +38,7 @@
             CONCAT(p.first_name, ' ', p.last_name) AS patient_name,
             CONCAT(d.first_name, ' ', d.last_name) AS doctor_name,
             a.appointment_date,
-            a.appointment_time,
+            a.start_time,
             a.appointment_status
            
         FROM 
@@ -60,7 +60,7 @@
                 echo "<td>" . htmlspecialchars($row['patient_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['doctor_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['appointment_date']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['appointment_time']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['start_time']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['appointment_status']) . "</td>";
                 echo "<td>";
                 echo"<a href='edit_appointment.php?id=" . $row["appointment_id"] . "'><i class='fa fa-edit'></i></a>";

@@ -96,7 +96,7 @@
     </div>
 
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary mt-4 btn-block">Sign Up</button>
+    <button type="submit" class="btn btn-primary mt-4 btn-block" onclick="this.disabled=true;this.form.submit();">Sign Up</button>
     
     <a href="/HospitalManagementSystem/index.php" class="link mx-auto mt-3 mb-5">Go to Landing Page</a>
 </form>

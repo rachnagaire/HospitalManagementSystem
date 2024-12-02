@@ -84,6 +84,6 @@
     
 
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mt-4">Book Appointment</button>
+    <button type="submit" class="btn btn-primary btn-block mt-4" onclick="this.disabled=true;this.form.submit();">Book Appointment</button>
   </form>
 </div>

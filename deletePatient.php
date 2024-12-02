@@ -4,45 +4,43 @@ include 'db.inc.php'; // Include the database connection file
 if (isset($_GET['id'])) {
     $patientId = $_GET['id'];
 
+    // Check if the patientId is valid (numeric)
+    if (!is_numeric($patientId)) {
+        echo "<script>
+                alert('Invalid patient ID.');
+                window.location.href = 'dashboard-patient.php'; 
+              </script>";
+        exit;
+    }
+
     // Begin transaction for consistency
     $conn->begin_transaction();
 
     try {
-        // Step 1: Delete related records manually if not set to cascade (you can add more dependent tables here if necessary)
-        
-        // Check and delete from the address table (if foreign key is not cascading)
-        $sql = "DELETE FROM address WHERE patient_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $patientId);
-        $stmt->execute();
-        $stmt->close();
-
-        // You can also add other dependent tables like `appointment`, `invoice`, `users` (based on your structure)
-        
-        // Example for other dependent tables:
-        $sql = "DELETE FROM appointment WHERE patient_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $patientId);
-        $stmt->execute();
-        $stmt->close();
-
-        $sql = "DELETE FROM invoice WHERE patient_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $patientId);
-        $stmt->execute();
-        $stmt->close();
-
+        // Step 1: Delete the related user data
         $sql = "DELETE FROM users WHERE patient_id = ?";
         $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            throw new Exception("Error preparing SQL for deleting user data.");
+        }
         $stmt->bind_param("i", $patientId);
         $stmt->execute();
+        if ($stmt->affected_rows === 0) {
+            throw new Exception("No user data found for the given patient ID.");
+        }
         $stmt->close();
 
         // Step 2: Delete the patient record from the patient table
         $sql = "DELETE FROM patient WHERE patient_id = ?";
         $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            throw new Exception("Error preparing SQL for deleting patient record.");
+        }
         $stmt->bind_param("i", $patientId);
         $stmt->execute();
+        if ($stmt->affected_rows === 0) {
+            throw new Exception("No patient data found for the given patient ID.");
+        }
         $stmt->close();
 
         // Commit the transaction

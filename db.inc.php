@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root"; // Default username for XAMPP
 $password = ""; // Default password for XAMPP
-$dbname = "cims"; // Your database name
+$dbname = "clinic"; // Your database name
 
 // Create a connection
 $port=3307;
