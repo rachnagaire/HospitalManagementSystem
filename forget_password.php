@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
-                <a href="/HospitalManagementSystem/index.php" class="link mx-auto">Go to Landing Page</a>
+                <a hhref="signin.php" class="link mx-auto">Go to Sign In Page</a>
             </form>
         </div>
     </section>
